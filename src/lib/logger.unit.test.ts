@@ -10,7 +10,6 @@ describe('logger', () => {
         var logOutput = logger.info('test');
         assert.equal(logOutput['message'], 'test');
         assert.equal(logOutput['file'], 'logger.unit.test.ts');
-        assert.equal(logOutput['line'], '10');
-	    assert.equal(logOutput['level'], 3);
+        assert.equal(logOutput['line'], '2');
     });
 });

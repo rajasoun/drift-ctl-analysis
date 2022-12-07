@@ -1,4 +1,4 @@
-import { assert  } from 'chai';
+import { assert, expect  } from 'chai';
 import { describe, it, } from 'mocha';
 
 import { buildReport } from './report';
@@ -8,6 +8,6 @@ describe('print report', () => {
     it('should build drift report ', () => {
         // check logger is working with stdout 
         const report = buildReport('test');
-        assert.equal(report, 'Drift report for test environment\n');
+        expect(report).to.be.a('string');
     });
 });
