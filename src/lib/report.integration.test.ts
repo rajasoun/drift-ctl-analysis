@@ -9,5 +9,6 @@ describe('print report', () => {
         // check logger is working with stdout 
         const report = buildReport('test');
         expect(report).to.be.a('string');
+        expect(report).to.contain('Summary of drift report:');
     });
 });

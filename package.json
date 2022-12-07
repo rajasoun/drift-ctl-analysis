@@ -4,8 +4,9 @@
   "description": "End To End Web Automation ",
   "scripts": {
     "npm-check-update": "npx ncu -u",
-    "unit-test": "npx mocha",
-    "analyze": "npx ts-node src/analysis.ts"
+    "test": "npx mocha",
+    "analyze": "npx ts-node src/analysis.ts",
+    "coverage" : "npx nyc mocha"
   },
   "keywords": [
     "drift-ctl",
