@@ -1,4 +1,4 @@
-import { summary,unmanagedSummary, managedSummary} from './lib/drift';
-import { logger } from './lib/logger';
+import { buildReport } from './lib/report'
 
-
+const report = buildReport('dev')
+console.log(report)

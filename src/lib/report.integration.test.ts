@@ -1,13 +1,13 @@
 import { assert  } from 'chai';
 import { describe, it, } from 'mocha';
 
-import { logger } from './logger';
-import { printReport } from './report';
+import { buildReport } from './report';
 
 // check logger is working
 describe('print report', () => {
-    it('should print report to console.....', () => {
+    it('should build drift report ', () => {
         // check logger is working with stdout 
-        printReport('test');
+        const report = buildReport('test');
+        assert.equal(report, 'Drift report for test environment\n');
     });
 });
