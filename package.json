@@ -5,7 +5,7 @@
   "scripts": {
     "npm-check-update": "npx ncu -u",
     "test": "npx mocha",
-    "analyze": "npx ts-node src/analysis.ts",
+    "report": "npx ts-node src/index.ts",
     "coverage" : "npx nyc mocha"
   },
   "keywords": [

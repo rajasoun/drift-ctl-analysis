@@ -10,6 +10,12 @@ class Drift {
         this.driftReport = this.driftReport.concat(line);
     }
 
+    addLines(lines : Map<string, number>){
+        lines.forEach((value : number, key : string) => {
+            this.driftReport = this.driftReport.concat(key + ' : ' + value + '\n');
+        });
+    }
+
     report() : string {
         return this.driftReport;
     }
@@ -29,16 +35,12 @@ export function buildReport(env : string) : string {
     drift.addLine('Total resources: ' + summaryMap.get('total_resources') + '\n');
     drift.addSeperator();
 
-    drift.addLine('Managed resources:\n');
-    managedMap.forEach((value : number, key : string) => {
-        drift.addLine(key + ' : ' + value + '\n');
-    });
+    drift.addLine('Managed Resources:\n');
+    drift.addLines(managedMap);
     drift.addSeperator();
 
-    drift.addLine('Unmanaged resources:\n');
-    unmanagedMap.forEach((value : number, key : string) => {
-        drift.addLine(key + ' : ' + value  + '\n');
-    });
+    drift.addLine('Unmanaged Resources:\n');
+    drift.addLines(unmanagedMap);
     drift.addSeperator();
 
     return drift.report();
