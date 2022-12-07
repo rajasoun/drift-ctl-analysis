@@ -1,0 +1,8 @@
+require:
+  - "ts-node/register"
+full-trace: true
+parallel: true
+slow: true
+reporter: spec #spec #tap #list #dot #html
+spec: 
+  - 'src/**/*.test.ts'

@@ -1,0 +1,60 @@
+{
+	"provider_name": "aws",
+	"provider_version": "3.19.0",
+	"managed": [
+		{
+			"id": "arn:aws:iam::1234567890:policy/random-1",
+			"type": "aws_iam_policy",
+			"source": {
+				"source": "tfstate+s3://some-bucket/some-path",
+				"namespace": "",
+				"internal_name": "randowm-internal-name-1"
+			}
+		},
+		{
+			"id": "arn:aws:iam::1234567890:policy/random-2",
+			"type": "aws_iam_policy",
+			"source": {
+				"source": "tfstate+s3:////some-bucket/some-path",
+				"namespace": "",
+				"internal_name": "randowm-internal-name-2"
+			}
+		}
+	],
+	"unmanaged": [
+		{
+			"id": "ami-1",
+			"type": "aws_ami"
+		},
+		{
+			"id": "ami-2",
+			"type": "aws_ami"
+		},
+		{
+			"id": "api-2",
+			"type": "aws_api_gateway_account"
+		}
+	],
+	"missing": [
+		{
+			"id": "vol-1",
+			"type": "aws_ebs_volume"
+		},
+		{
+			"id": "eipassoc-1",
+			"type": "aws_eip_association"
+		}
+	],
+	"differences": null,
+	"coverage": 12,
+	"alerts": {
+		"Mock Alert": [{"message": "You have unmanaged security group rules that could be false positives"}]
+	},
+	"summary": {
+		"total_resources": 7,
+		"total_changed": 0,
+		"total_managed": 2,
+		"total_unmanaged": 3,
+		"total_missing": 2
+	}
+}

@@ -1,0 +1,20 @@
+extends: "@istanbuljs/nyc-config-typescript"
+require: ["ts-node/register"]
+extension: [".ts"]
+all: true
+cache: true
+clean: true
+babel-cache: true
+sourceMap: true
+instrument: true
+excludeNodeModules: true
+check-coverage: true
+include: ["src/*.ts", "src/lib/*.ts"]
+exclude: ["src/**/*.spec.ts", "src/analysis.ts"]
+ignore-class-method: ["render"]
+reporter: ["lcov", "text-summary"]
+report-dir: reports/coverage
+branches: 100
+lines: 100
+functions: 100
+statements: 100

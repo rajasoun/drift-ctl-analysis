@@ -1,0 +1,37 @@
+{
+  "name": "drift-ctl-analysis",
+  "version": "1.0.0",
+  "description": "End To End Web Automation ",
+  "scripts": {
+    "npm-check-update": "npx ncu -u",
+    "unit-test": "npx mocha",
+    "analyze": "npx ts-node src/analysis.ts"
+  },
+  "keywords": [
+    "drift-ctl",
+    "analyze"
+  ],
+  "author": "Raja Soundaramourty",
+  "license": "ISC",
+  "engines": {
+    "node": ">=16.8.1"
+  },
+  "dependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.11.11",
+    "@types/prettyjson": "^0.0.30",
+    "chai": "^4.3.7",
+    "mocha": "^10.1.0",
+    "prettyjson": "^1.2.5",
+    "source-map-support": "^0.5.21",
+    "tracer": "^1.1.6",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
+  },
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "npm-check-updates": "^16.5.0",
+    "nyc": "^15.1.0"
+  }
+}
