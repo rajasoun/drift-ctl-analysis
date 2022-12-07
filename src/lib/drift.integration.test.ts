@@ -46,7 +46,7 @@ describe('unmanged resource analysis', () => {
         assert.equal(unmanagedSummaryMap.get('dummy'), undefined);
         });
     // unamnaged resource analysis
-    it('should provide summary of allnmanaged resources with count', () => {
+    it('should provide summary of all nmanaged resources with count', () => {
         // call analyseUnmanagedResources
         const managedSummaryMap : Map<string, number> = managedSummary('test');
         assert.equal(managedSummaryMap.size, 1);
