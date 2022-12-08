@@ -6,7 +6,7 @@ import { buildReport } from '../lib/report'
 
 const help = "Provide Env :  (dev | qa | stage | prod)\n " 
             + "\t\tExample: npm run report -e dev";
-const actionArgs = option({
+const flags = option({
     type: string,
     long: 'env',
     short: 'e',
@@ -17,7 +17,7 @@ const actionArgs = option({
 const app = command({
   name: 'drift-ctl-report',
   args: {
-    env: actionArgs,
+    env: flags,
   },
     handler: ({ env,}) => {
         const report = buildReport(env)

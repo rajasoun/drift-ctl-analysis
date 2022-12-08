@@ -9,7 +9,7 @@ sourceMap: true
 instrument: true
 excludeNodeModules: true
 check-coverage: true
-include: ["src/*.ts", "src/lib/*.ts"]
+include: ["src/*.ts", "src/lib/*.ts", "src/cli/*.ts"]
 exclude: ["src/**/*.spec.ts", "src/index.ts"]
 ignore-class-method: ["render"]
 reporter: ["lcov", "text-summary"]
