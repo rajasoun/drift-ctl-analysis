@@ -1,5 +1,6 @@
 import { assert  } from 'chai';
 import { describe, it,  } from 'mocha';
+import { logger } from '../lib/logger';
 
 import { NewApp, AddCommand } from './cmd';
 

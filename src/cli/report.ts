@@ -2,7 +2,11 @@ import { Command } from 'commander';
 
 import { logger } from '../lib/logger'
 import { buildReport } from '../lib/report'
-import { AppConfig,NewApp, CommandConfig } from './cmd'
+import { 
+  AppConfig,
+  NewApp, 
+  CommandConfig } 
+from './cmd'
 
 enum Environment {
   dev = 'dev',
