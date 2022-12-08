@@ -18,15 +18,11 @@ Analyze [drift-ctl](https://driftctl.com/) json file for quick report building.
 
 ```sh
 npm install 
-npm run report
+npm run report <test | dev>
 ```
 
 ## ToDo 
 
-1. Pass environment file via CLI (dev, qa, stage, prod)
-2. Get the drift-ctl output from S3 Bucket 
-3. HTML or CSV  Table Report 
+1. Get the drift-ctl output from S3 Bucket 
+2. HTML or CSV  Table Report 
 
-## Development 
-
-1. 
