@@ -28,9 +28,9 @@ class Drift {
 
 // print report 
 export function buildReport(env : string) : string {
-    const summaryMap : Map<string,number> = summary('dev');
-    const unmanagedMap : Map<string,number> = unmanagedSummary('dev');
-    const managedMap : Map<string,number> = managedSummary('dev');
+    const summaryMap : Map<string,number> = summary(env);
+    const unmanagedMap : Map<string,number> = unmanagedSummary(env);
+    const managedMap : Map<string,number> = managedSummary(env);
     const driftPercentage = calculateDriftPercentage(summaryMap.get('total_unmanaged'), summaryMap.get('total_resources'));
 
     let drift =  new Drift();

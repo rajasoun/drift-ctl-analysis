@@ -8,7 +8,8 @@ import {
     unmanagedSummary,
     managedSummary,
     summarise,
-    summary
+    summary,
+    calculateDriftPercentage
 } from './drift';
 
 
@@ -62,5 +63,24 @@ describe('unmanged resource analysis', () => {
         assert.equal(summaryMap.get('total_unmanaged'), drift.summary.total_unmanaged);
         assert.equal(summaryMap.get('total_managed'), drift.summary.total_managed);
         assert.equal(summaryMap.get('total_resources'), drift.summary.total_resources);
+    });
+
+    // calculate drift percentage
+    it('should calculate drift percentage', () => {
+        const testTable = [
+            {total_unmanaged: 0, total_resources: 0, expected: 0},
+            {total_unmanaged: 0, total_resources: 1, expected: 0},
+            {total_unmanaged: 1, total_resources: 0, expected: 0},
+            {total_unmanaged: 1, total_resources: 1, expected: 100},
+            {total_unmanaged: 1, total_resources: 2, expected: 50},
+            {total_unmanaged: 2, total_resources: 1, expected: 200},
+            {total_unmanaged: undefined, total_resources: 0, expected: 0},
+            {total_unmanaged: undefined, total_resources: undefined, expected: 0},
+            {total_unmanaged: 0, total_resources: undefined, expected: 0},
+        ]
+        testTable.forEach((test) => {
+            const driftPercentage : number = calculateDriftPercentage(test.total_unmanaged, test.total_resources);
+            assert.equal(driftPercentage, test.expected);
+        });
     });
 });

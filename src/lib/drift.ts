@@ -1,6 +1,4 @@
-import { Drift, Unmanaged, } from './model';
-
-import { logger } from './logger';
+import { Drift, } from './model';
 
 export function getDriftFilePathBy(env : string) : string {
     return '../../data/'+env+'/driftctl_full.json';

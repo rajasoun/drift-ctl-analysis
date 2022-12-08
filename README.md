@@ -26,3 +26,7 @@ npm run report
 1. Pass environment file via CLI (dev, qa, stage, prod)
 2. Get the drift-ctl output from S3 Bucket 
 3. HTML or CSV  Table Report 
+
+## Development 
+
+1. 

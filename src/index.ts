@@ -1,4 +1,8 @@
 import { buildReport } from './lib/report'
 
-const report = buildReport('dev')
-console.log(report)
+function main() {
+    const report = buildReport('dev')
+    console.log(report)
+}
+
+main()
