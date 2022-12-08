@@ -1,26 +1,19 @@
-import { command, run, string, option } from 'cmd-ts';
+import { Command } from 'commander';
 
 import { buildReport } from '../lib/report'
+const program = new Command();
 
-// Refernce: https://cmd-ts.vercel.app/getting_started.html
-const reportCommandFlags = option(
-  {
-    type: string,
-    long: 'env',
-    short: 'e',
-    description: "Provide Env :  (dev | qa | stage | prod)\n \t\tExample: npm run report -e dev"
-  },
-);
+program
+  .name('drift-ctl')
+  .description('Analyze drift between the current state of infrastructure and the state defined in your Terraform configuration.')
+  .version('0.0.1')
 
-export const reportApp = command(
-  {
-    name: 'report',
-    args: { env: reportCommandFlags,},
-    handler: ({ env,}) => {
-          const report = buildReport(env)
-          console.log(report)
-    },
-  },
-);
+program.command('report')
+  .description('Generate drift-ctl report')
+  .option('-e, --env <string>', 'Environment name < dev | qa | stage | prod | test >')
+  .action((options) => {
+    const report = buildReport(options.env);
+    console.log(report)
+  });
 
-run(reportApp, process.argv.slice(2));
+program.parse();
