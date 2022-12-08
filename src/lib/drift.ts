@@ -49,3 +49,8 @@ export function summary(env : string) : Map<string, number> {
     return summaryMap;
 }
 
+// function to calculate drift percentage
+export function calculateDriftPercentage(unmanaged: number | undefined, total: number | undefined) : number {
+    const driftPercentage = (unmanaged && total) ? (unmanaged / total) * 100 : 0;
+    return driftPercentage;
+}
