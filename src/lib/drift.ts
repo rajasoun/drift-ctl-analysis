@@ -1,7 +1,23 @@
 import { Drift, } from './model';
+import {logger} from './logger';
+
+// function check if file exists
+function fileExists(filePath: string) : boolean {
+    try {
+      require.resolve(filePath);
+      return true
+    } catch (err) {
+      return false;
+    }
+  }
 
 export function getDriftFilePathBy(env : string) : string {
-    return '../../data/'+env+'/driftctl_full.json';
+    const filePath : string = '../../data/'+env+'/driftctl_full.json';
+    if (!fileExists(filePath)) {
+        logger.error('drift-ctl File not found : ' + filePath);
+        throw new Error('drift-ctl File not found : ' + filePath);
+    }
+    return filePath;
 }
 
 // function to load json from file system
