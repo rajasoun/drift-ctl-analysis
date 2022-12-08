@@ -10,8 +10,8 @@ const flags = option({
     description: "Provide Env :  (dev | qa | stage | prod)\n \t\tExample: npm run report -e dev"
   });
 
-const app = command({
-  name: 'drift-ctl-report',
+export const app = command({
+  name: 'report',
   args: { env: flags,},
   handler: ({ env,}) => {
         const report = buildReport(env)

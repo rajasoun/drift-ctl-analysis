@@ -4,9 +4,9 @@
   "description": "End To End Web Automation ",
   "scripts": {
     "npm-check-update": "npx ncu -u",
-    "test": "npx mocha",
+    "test": "npx mocha --exit",
     "test:watch": "npx mocha --watch",
-    "report": "npx ts-node src/cli/run.ts --env", 
+    "report": "npx ts-node src/cli/report.ts --env", 
     "coverage": "npx nyc mocha"
   },
   "keywords": [
