@@ -1,19 +1,61 @@
 import { Command } from 'commander';
 
+import { logger } from '../lib/logger'
 import { buildReport } from '../lib/report'
-const program = new Command();
+import { AppConfig,NewApp, CommandConfig, AddCommand } from './cmd'
 
-program
-  .name('drift-ctl')
-  .description('Analyze drift between the current state of infrastructure and the state defined in your Terraform configuration.')
-  .version('0.0.1')
+enum Environment {
+  dev = 'dev',
+  qa = 'qa',
+  stage = 'stage',
+  prod = 'prod',
+  test = 'test'
+}
 
-program.command('report')
-  .description('Generate drift-ctl report')
-  .option('-e, --env <string>', 'Environment name < dev | qa | stage | prod | test >')
-  .action((options) => {
-    const report = buildReport(options.env);
-    console.log(report)
-  });
+// function to create report cli app 
+function NewReportApp() : Command {
+  const appConfig : AppConfig = {
+    name: 'driftctl',
+    description: 'Analyze drift between current infras and the terraform state file',
+    version: '0.0.1'
+  }
+  const app = NewApp(appConfig)
+  return app
+}
 
-program.parse();
+// function to create report command
+function NewReportCommand(): CommandConfig {
+  return {
+    name: 'report',
+    description: 'Generate report for drift-ctl json',
+    cmdFlags: '-e, --env <string>',
+    handler: reportCmdHandler
+  };
+}
+
+// handler function for the command
+function reportCmdHandler(options: any) {
+  // check if env is valid using Environment enum
+  if (!isValidEnv(options.env)) {
+    logger.error('Invalid environment : ' + options.env);
+    return;
+  }
+  const report = buildReport(options.env);
+  console.log(report);
+}
+
+// function check if the env falg is valid 
+function isValidEnv(env: any) {
+  return Object.values(Environment).includes(env);
+}
+
+// function to run command
+export function Run(){
+  const reportApp = NewReportApp()
+  const reportCmd : CommandConfig = NewReportCommand()
+  AddCommand(reportApp, reportCmd);
+  reportApp.parse();
+}
+
+Run()
+
