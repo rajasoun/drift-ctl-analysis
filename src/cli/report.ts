@@ -2,7 +2,7 @@ import { Command } from 'commander';
 
 import { logger } from '../lib/logger'
 import { buildReport } from '../lib/report'
-import { AppConfig,NewApp, CommandConfig, AddCommand } from './cmd'
+import { AppConfig,NewApp, CommandConfig } from './cmd'
 
 enum Environment {
   dev = 'dev',
@@ -13,7 +13,7 @@ enum Environment {
 }
 
 // function to create report cli app 
-function NewReportApp() : Command {
+export function NewReportApp() : Command {
   const appConfig : AppConfig = {
     name: 'driftctl',
     description: 'Analyze drift between current infras and the terraform state file',
@@ -24,7 +24,7 @@ function NewReportApp() : Command {
 }
 
 // function to create report command
-function NewReportCommand(): CommandConfig {
+export function NewReportCommand(): CommandConfig {
   return {
     name: 'report',
     description: 'Generate report for drift-ctl json',
@@ -34,7 +34,7 @@ function NewReportCommand(): CommandConfig {
 }
 
 // handler function for the command
-function reportCmdHandler(options: any) {
+export function reportCmdHandler(options: any) {
   // check if env is valid using Environment enum
   if (!isValidEnv(options.env)) {
     logger.error('Invalid environment : ' + options.env);
@@ -45,17 +45,8 @@ function reportCmdHandler(options: any) {
 }
 
 // function check if the env falg is valid 
-function isValidEnv(env: any) {
+export function isValidEnv(env: any) {
   return Object.values(Environment).includes(env);
 }
 
-// function to run command
-export function Run(){
-  const reportApp = NewReportApp()
-  const reportCmd : CommandConfig = NewReportCommand()
-  AddCommand(reportApp, reportCmd);
-  reportApp.parse();
-}
-
-Run()
 
