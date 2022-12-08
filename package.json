@@ -6,7 +6,7 @@
     "npm-check-update": "npx ncu -u",
     "test": "npx mocha --exit",
     "test:watch": "npx mocha --watch",
-    "report": "npx ts-node src/cli/report.ts ", 
+    "report": "npx ts-node src/cli/report.ts report --env", 
     "coverage": "npx nyc mocha"
   },
   "keywords": [
