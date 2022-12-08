@@ -9,12 +9,25 @@ import {
     managedSummary,
     summarise,
     summary,
-    calculateDriftPercentage
+    calculateDriftPercentage,
 } from './drift';
 
 
+// check drift-ctl file exists
+describe('drift-ctl file exists', () => {
+    it('should pass if file exists', () => {
+        const filePath : string = getDriftFilePathBy('test');
+        assert.equal(filePath, '../../data/test/driftctl_full.json');
+    });
+    it('should throw error if file does not exists', () => {
+        assert.throws(() => { getDriftFilePathBy('dummy') }, 
+            Error, 'drift-ctl File not found : ../../data/dummy/driftctl_full.json');
+        
+    });
+});
+
 // check if json is loaded correctly from file system 
-describe('unmanged resource analysis', () => {
+describe('resource analysis', () => {
     let driftFilePath : string
     let drift : Drift
 

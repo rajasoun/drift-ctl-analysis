@@ -14,7 +14,7 @@ function fileExists(filePath: string) : boolean {
 export function getDriftFilePathBy(env : string) : string {
     const filePath : string = '../../data/'+env+'/driftctl_full.json';
     if (!fileExists(filePath)) {
-        logger.error('drift-ctl File not found : ' + filePath);
+        logger.error('drift-ctl File ' + filePath + ' not found for env : ' + env + '. Exiting...');
         throw new Error('drift-ctl File not found : ' + filePath);
     }
     return filePath;
