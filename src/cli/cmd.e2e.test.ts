@@ -34,7 +34,7 @@ describe('end to end test', () => {
         assert.equal(app.commands.length, 1);
     });
     // check if command is executed and logger is called
-    it('should execute command', () => {
+    it('should execute commandnwithout error', () => {
         app.parse(['node', 'test', 'dummy', '-e', 'dev']);
         // mock console.log using expect
         expect(console.log).to.not.throw();
