@@ -11,9 +11,7 @@ Analyze [drift-ctl](https://driftctl.com/) json file for quick report building.
 
 ## Getting Started 
 
-1. Place the drift-ctl json file in data folder 
-
-
+1. Place the drift-ctl json file in data folder based on environment
 2. In Terminal 
 
 ```sh
