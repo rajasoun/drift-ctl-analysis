@@ -15,6 +15,6 @@ ignore-class-method: ["render"]
 reporter: ["lcov", "html", "text","text-summary"]
 report-dir: reports/coverage
 branches: 100
-lines: 99
-functions: 96
-statements: 99
+lines: 100
+functions: 100
+statements: 100
