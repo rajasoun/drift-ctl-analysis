@@ -13,15 +13,18 @@ jobs:
           name: Run All Automated tests
           command: npm run test
       - run:
-          name: Code Coverage 
+          name: Gnerate Report For Test drift-ctl.json
           command: npm run report test
+      - run:
+          name: Generate Code Coverage Report
+          command: npm run coverage
       - store_test_results:
           path: reports         
       - store_artifacts:
           path: reports
       - run:
           name: List Reports  
-          command: ls -als 
+          command: ls -als reports/coverage
 
     parallelism: 4
 

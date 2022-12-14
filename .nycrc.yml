@@ -12,7 +12,7 @@ check-coverage: true
 include: ["src/*.ts", "src/lib/*.ts", "src/cli/*.ts"]
 exclude: ["src/**/*.spec.ts", "src/cli/run.ts"]
 ignore-class-method: ["render"]
-reporter: ["lcov", "html", "text","text-summary"]
+reporter: ["lcov", "html", "json","text","text-summary"]
 report-dir: reports/coverage
 branches: 100
 lines: 100
