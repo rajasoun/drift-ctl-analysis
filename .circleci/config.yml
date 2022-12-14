@@ -15,10 +15,11 @@ jobs:
       - run:
           name: Code Coverage 
           command: npm run report test
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .
+      - store_test_results:
+          path: reports         
+      - store_artifacts:
+          path: reports
+
     parallelism: 4
 
 workflows:
