@@ -1,16 +1,16 @@
 version: 2.1
 orbs:
-  node: circleci/node@5.0.2
+  node: circleci/node@5.0.3
 
 jobs:
-  build_and_test:
+  ci:
     executor: node/default
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: npm
       - run:
-          name: Run tests
+          name: Run All Automated tests
           command: npm run test
       - run:
           name: Code Coverage 
@@ -21,7 +21,7 @@ jobs:
             - .
 
 workflows:
-  ci:
+  cd:
     jobs:
-      - build_and_test
+      - ci
 
