@@ -16,9 +16,12 @@ jobs:
           name: Code Coverage 
           command: npm run report test
       - store_test_results:
-          path: test-results         
+          path: reports         
       - store_artifacts:
-          path: test-results
+          path: reports
+      - run:
+          name: List Reports  
+          command: ls -als reports
 
     parallelism: 4
 
