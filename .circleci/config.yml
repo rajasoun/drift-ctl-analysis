@@ -26,8 +26,6 @@ jobs:
       - store_artifacts:
           path: reports/coverage
 
-    parallelism: 4
-
 workflows:
   cd:
     jobs:
