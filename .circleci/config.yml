@@ -19,6 +19,7 @@ jobs:
           root: ~/project
           paths:
             - .
+    parallelism: 4
 
 workflows:
   cd:
