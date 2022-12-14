@@ -19,8 +19,6 @@ jobs:
           name: Generate Code Coverage Report
           command: npm run coverage
       - store_test_results:
-          path: reports/coverage         
-      - store_artifacts:
           path: reports/coverage
       - run:
           name: List Reports  
