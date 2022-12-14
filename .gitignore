@@ -126,12 +126,11 @@ unit.cov
 
 .DS_Store
 node_modules/
-reports
 .env
 .npm
 *.env
 .nyc_output
 
-
+reports/coverage
 
 
